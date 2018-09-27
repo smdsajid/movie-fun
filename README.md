@@ -10,6 +10,6 @@ $ mvn clean package -DskipTests -Dmaven.test.skip=true
 
 ## Run Smoke Tests against specific URL
 
-```
-$ MOVIE_FUN_URL=http://moviefun.example.com mvn test
-```
+
+MOVIE_FUN_URL="http://moviefun-thankful-warthog.apps.pikes.pal.pivotal.io" mvn test
+

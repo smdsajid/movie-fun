@@ -16,7 +16,7 @@ public class SmokeTest {
 
         assertThat(homePage, containsString("Please select one of the following links:"));
 
-        String setupPage = restTemplate.getForObject(url("/setup.jsp"), String.class);
+        String setupPage = restTemplate.getForObject(url("/setup"), String.class);
 
         assertThat(setupPage, containsString("Wedding Crashers"));
         assertThat(setupPage, containsString("Starsky & Hutch"));
@@ -32,12 +32,15 @@ public class SmokeTest {
 
     private String url(String path) {
         String baseUrl = "http://localhost:8080/moviefun";
-        String envUrl = System.getenv("MOVIE_FUN_URL");
-
+        String envUrl = System.getenv("http://moviefun-thankful-warthog.apps.pikes.pal.pivotal.io");
+/*
         if (envUrl != null && !envUrl.isEmpty()) {
             baseUrl = envUrl;
         }
 
         return baseUrl + path;
+ */
+        return "http://localhost:8080" + path;
+        //return "http://moviefun-thankful-warthog.apps.pikes.pal.pivotal.io" + path;
     }
 }
